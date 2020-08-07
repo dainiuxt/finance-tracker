@@ -1,0 +1,36 @@
+<% if !@tracked_stocks.empty? %>
+	<div class="form-group row mt-4">
+		<div class="col-sm-9 no-right-padding">
+			<table class="table table-sm table-hover">
+			  <thead>
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Ticker</th>
+			      <th scope="col">Name</th>
+			      <th scope="col">Price</th>
+			      <th scope="col">Actions</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% @count = 0 %>
+			  	<% @tracked_stocks.each do |stock| %>
+				    <tr>
+				    	<th scope="row"><%= @count += 1 %></th>
+				      <th><%= stock.ticker %></th>
+				      <td><%= stock.name %></td>
+				      <td><%= stock.last_price %></td>
+				      <td>Buy/Sell/Keep</td>
+				    </tr>
+				  <% end %>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+<% end %>
+<% if @tracked_stocks.empty? %>
+	<div class="form-group row mt-4">
+		<div class="col-sm-9 no-right-padding">
+			Your portfolio is empty.
+ 		</div>
+	</div>
+<% end %>
